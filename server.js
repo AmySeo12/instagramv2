@@ -7,7 +7,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("public", __dirname+ "/public");
 
-app.set("port",process.env.POT || 3000);//ksjdlks
+app.set("port",process.env.PORT || 3000);//ksjdlks
 //sockets
 
 io.sockets.on("connection", function(socket){
@@ -24,6 +24,6 @@ app.get("/", function(req,res){
 
 })
 
-http.listen(3000, function(){
+http.listen(app.get("port"), function(){
 	console.log("Servidor encendido.");
 });
